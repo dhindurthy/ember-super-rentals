@@ -17,4 +17,12 @@
     <p class="description">{{model.description}}</p>
   </div>
   <img src="{{model.image}}" class="rental-pic">
+
+  Comments:
+  <br>
+  {{#each model.comments as |comment|}}
+    <p>{{comment.message}}</p>
+  {{/each}}
+  {{input type="text" value=message}}
+  <input type="submit" value="Comment" {{action "submitComment"}}>
 </div>

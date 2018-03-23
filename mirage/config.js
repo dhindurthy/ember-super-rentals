@@ -39,6 +39,20 @@ export default function() {
         bedrooms: 15,
         image: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg',
         description: "This grand old mansion sits on over 100 acres of rolling hills and dense redwood forests."
+      },
+      relationships: {
+        "comments": {
+            "data": [{
+                "id": "21",
+                "type": "comment"
+            },{
+                "id": "32",
+                "type": "comment"
+            }, {
+                "id": "43",
+                "type": "comment"
+            }]
+        }
       }
     }, {
       type: 'rentals',
@@ -66,6 +80,26 @@ export default function() {
       }
     }];
 
+    let comments = [{
+          id: "21",
+          type: "comment",
+          attributes: {
+            message: "This is very nice"
+          }
+      },{
+          id: "32",
+          type: "comment",
+          attributes: {
+            message: "This is just okay"
+          },
+      }, {
+          id: "43",
+          type: "comment",
+          attributes: {
+            message: "I dont know what to say, its whatever"
+          }
+      }];
+
   this.get('/rentals', function(db, request) {
     if(request.queryParams.city !== undefined) {
       let filteredRentals = rentals.filter(function(i) {
@@ -80,5 +114,9 @@ export default function() {
   // Find and return the provided rental from our rental list above
   this.get('/rentals/:id', function (db, request) {
     return { data: rentals.find((rental) => request.params.id === rental.id) };
+  });
+
+  this.get('/comments/:id', function (db, request) {
+    return { data: comments.find((comment) => request.params.id === comment.id) };
   });
 }

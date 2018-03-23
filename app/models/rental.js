@@ -7,5 +7,6 @@ export default DS.Model.extend({
   type: DS.attr(),
   image: DS.attr(),
   bedrooms: DS.attr(),
-  description: DS.attr()
+  description: DS.attr(),
+  comments: DS.hasMany('comment')
 });

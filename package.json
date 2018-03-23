@@ -38,6 +38,8 @@
     "ember-export-application-global": "^1.0.5",
     "ember-load-initializers": "^0.5.1",
     "ember-resolver": "^2.0.3",
+    "emberfire": "2.0.9",
+    "firebase": "4.12.0",
     "loader.js": "^4.0.1"
   }
 }
